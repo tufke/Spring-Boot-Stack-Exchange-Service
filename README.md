@@ -1,18 +1,17 @@
 # Spring Boot - Stack Exchange Service
 
 Goal:
+*	Create an API server which can analyse the content of big xml files
+*	A distributable docker container running the server
 
-•	Create an API server which can analyse the content of big xml files
-•	A distributable docker container running the server
-
-Requirement
-•	Create an API with Spring Boot (Java) and Maven.
-•	A POST request should be possible with a url to an XML file (this file can be > 1GB)
-•	The response of the post request should hold an overview of the analysation of the XML fields.
-•	The code should be unit and component tested.
-•	Place the code on github account.
-•	The code should pass the maven build and be runnable via cli with max of 512MB of memory.
-•	At least a single Java 8 feature should be included.
+Requirement:
+*	Create an API with Spring Boot (Java) and Maven.
+*	A POST request should be possible with a url to an XML file (this file can be > 1GB)
+*	The response of the post request should hold an overview of the analysation of the XML fields.
+*	The code should be unit and component tested.
+*	Place the code on github account.
+*	The code should pass the maven build and be runnable via cli with max of 512MB of memory.
+*	At least a single Java 8 feature should be included.
 
 Docker container
 •	Create a docker-image for the server, based on the standard Java docker image (https://hub.docker.com/_/java/). The dockerfile used to     create this image should be part of the repo.
