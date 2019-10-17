@@ -1,6 +1,7 @@
 # Spring Boot - Stack Exchange Service
 
 Goal:
+
 •	Create an API server which can analyse the content of big xml files
 •	A distributable docker container running the server
 
