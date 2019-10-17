@@ -32,9 +32,9 @@ file:c://posts.xml
 
 ### example JSON post request:
 ```
- POST http://localhost:8080/stack/posts/analyze
- host: localhost:8080
- Content-Type: application/json
+> POST http://localhost:8080/stack/posts/analyze
+> host: localhost:8080
+> Content-Type: application/json
 {
   "url" : "https://s3-eu-west-1.amazonaws.com/merapar-assessment/arabic-posts.xml"
 }
@@ -42,9 +42,9 @@ file:c://posts.xml
 
 ### example JSON response:
 ```
- POST http://localhost:8080/stack/posts/analyze
- 200 (OK)
- Content-Type: application/json
+> POST http://localhost:8080/stack/posts/analyze
+< 200 (OK)
+< Content-Type: application/json
 {
   "analyseDate" : "2019-10-18T00:23:24.432",
   "details" : {
@@ -53,26 +53,25 @@ file:c://posts.xml
     "totalPosts" : 80,
     "totalAcceptedPosts" : 7,
     "avgScore" : 2
-  }
-}
+ }
 ```
 
 You can run the spring boot jar by using Java 8 with the following command from commandline:
-'java -jar stackservice-1.0-SNAPSHOT.jar'
+`java -jar stackservice-1.0-SNAPSHOT.jar`
 
 if you are behind a proxy add proxy configuration as jvm parameters to avoid UnkownHostException, for instance like this:
-'java -Djava.net.useSystemProxies=true -jar stackservice-1.0-SNAPSHOT.jar'
+`java -Djava.net.useSystemProxies=true -jar stackservice-1.0-SNAPSHOT.jar`
 
 When the server is running you can test the service with the Swagger-UI:
-http://localhost:8080/swagger-ui.html
+`http://localhost:8080/swagger-ui.html`
 
 the api documentation is available in openapi.json format:
-http://localhost:8080/v3/api-
+`http://localhost:8080/v3/api-docs`
 
-A truststore is available in src/main/resources/keystore. Add a signed certificate in the truststore for the https url you want to get a xml file from. if you don't have such a certificate use http or enable the accept all truststore in application.properties. If you add a certificate with keytool make sure it is signed by an authorized CA (available in cacerts keystore of your jre) in the top of the certificate chain. 
+A truststore is available in src/main/resources/keystore. Add a signed certificate in the truststore for the https url you want to get a xml file from. if you don't have such a certificate use http or enable the accept all truststore in application.properties. If you add a certificate with keytool make sure it is signed by an authorized CA in the top of the certificate chain (available in cacerts keystore of your jre). 
 
 test the service after adding the certificate by starting the service like this (not tested yet):
-'java -Djava.net.useSystemProxies=true -jar stackservice-1.0-SNAPSHOT.jar --http.client.ssl.accept-all-trust-store=false'
+`java -Djava.net.useSystemProxies=true -jar stackservice-1.0-SNAPSHOT.jar --http.client.ssl.accept-all-trust-store=false`
 
 
 ### Used depedencies:
