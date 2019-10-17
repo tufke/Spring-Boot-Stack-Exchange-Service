@@ -31,17 +31,17 @@ Find other larger files on archive site https://archive.org/details/stackexchang
 file:c://posts.xml
 
 ### example JSON post request:
-'''
+```
  POST http://localhost:8080/stack/posts/analyze
  host: localhost:8080
  Content-Type: application/json
 {
   "url" : "https://s3-eu-west-1.amazonaws.com/merapar-assessment/arabic-posts.xml"
 }
-'''
+```
 
 ### example JSON response:
-'''
+```
  POST http://localhost:8080/stack/posts/analyze
  200 (OK)
  Content-Type: application/json
@@ -55,7 +55,7 @@ file:c://posts.xml
     "avgScore" : 2
   }
 }
-'''
+```
 
 You can run the spring boot jar by using Java 8 with the following command from commandline:
 'java -jar stackservice-1.0-SNAPSHOT.jar'
