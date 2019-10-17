@@ -13,16 +13,15 @@ Requirement:
 *	The code should pass the maven build and be runnable via cli with max of 512MB of memory.
 *	At least a single Java 8 feature should be included.
 
-Docker container
-•	Create a docker-image for the server, based on the standard Java docker image (https://hub.docker.com/_/java/). The dockerfile used to     create this image should be part of the repo.
-•	Commit the docker image on Dockerhub (https://hub.docker.com)
-•	Add a Readme on how to start and use the docker image
+Docker container:
+*	Create a docker-image for the server, based on the standard Java docker image (https://hub.docker.com/_/java/). The dockerfile used to create this image should be part of the repo.
+*	Commit the docker image on Dockerhub (https://hub.docker.com)
+*	Add a Readme on how to start and use the docker image
 
 Example files:
 The files are based on stack overflow site with data per topic.
-
-•	805Kb - https://s3-eu-west-1.amazonaws.com/merapar-assessment/3dprinting-posts.xml
-•	71Kb - https://s3-eu-west-1.amazonaws.com/merapar-assessment/arabic-posts.xml
+*	805Kb - https://s3-eu-west-1.amazonaws.com/merapar-assessment/3dprinting-posts.xml
+*	71Kb - https://s3-eu-west-1.amazonaws.com/merapar-assessment/arabic-posts.xml
 
 Find other larger files on archive site https://archive.org/details/stackexchange
 
@@ -39,6 +38,7 @@ example JSON post request:
 }
 
 example JSON response:
+<addr>
  > POST http://localhost:8080/stack/posts/analyze
  < 200 (OK)
  < Content-Type: application/json
@@ -52,6 +52,7 @@ example JSON response:
     "avgScore" : 2
   }
 }
+</addr>
 
 You can run the spring boot jar by using Java 8 with the following command from commandline:
 java -jar stackservice-1.0-SNAPSHOT.jar
