@@ -14,10 +14,10 @@
 *	At least a single Java 8 feature should be included.
 
 ### Docker container:
--	Create a docker-image for the server, based on the standard Java docker image (https://hub.docker.com/_/java/).
-  - The dockerfile used to create this image should be part of the repo.
--	Commit the docker image on Dockerhub (https://hub.docker.com)
--	Add a Readme on how to start and use the docker image
+*	Create a docker-image for the server, based on the standard Java docker image (https://hub.docker.com/_/java/).
+  * The dockerfile used to create this image should be part of the repo.
+*	Commit the docker image on Dockerhub (https://hub.docker.com)
+*	Add a Readme on how to start and use the docker image
 
 ### Example files:
 The files are based on stack overflow site with data per topic.
