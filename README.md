@@ -84,7 +84,9 @@ http://localhost:8080/v3/api-docs
 ```
 #
 #### Truststore for **https**
-A truststore is available in `src/main/resources/keystore`. Add a signed certificate in the truststore for the *https* url you want to get a xml file from. if you don't have such a certificate use *http* or enable the accept all truststore in application.properties. If you add a certificate with keytool make sure it is signed by an authorized CA in the top of the certificate chain (available in cacerts keystore of your jre). 
+A truststore is available in `src/main/resources/keystore`. Add a signed certificate in the truststore for the *https* url you want to get a xml file from. if you don't have such a certificate use *http* or enable the accept all truststore in application.properties. If you add a certificate with keytool make sure it is signed by an authorized CA in the top of the certificate chain (available in cacerts keystore of your jre). The truststore already has a certificate for this test url : 
+* http://s3-eu-west-1.amazonaws.com/merapar-assessment/arabic-posts.xml
+
 
 #### Test the service after adding the certificate by starting the service like this (not tested yet):
 ```
