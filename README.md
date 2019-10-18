@@ -28,8 +28,7 @@ Find other larger files on archive site https://archive.org/details/stackexchang
 
 ### Example of posts.xml 
 * file is available in `src/test/resources/xml/posts/posts.xml`
-* if you copy posts.xml to C: on your local harddrive you could access it with the service providing in the body the following url
-file:c://posts.xml
+* if you copy posts.xml to `C:\` on your local harddrive you could access it with the service providing in the body of the request the following url `file:c://posts.xml`
 
 ### Example JSON post request:
 ```
