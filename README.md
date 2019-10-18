@@ -66,6 +66,11 @@ java -jar stackservice-1.0-SNAPSHOT.jar
 java -Djava.net.useSystemProxies=true -jar stackservice-1.0-SNAPSHOT.jar
 ```
 #
+#### Running it with maven is done with the following command:
+```
+mvn spring-boot:run -Dspring-boot.run.jvmArguments="-Djava.net.useSystemProxies=true"
+```
+#
 #### When the server is running you can test the service with the **Swagger-UI**:
 ```
 http://localhost:8080/swagger-ui.html
@@ -77,7 +82,7 @@ http://localhost:8080/v3/api-docs
 ```
 #
 #### Truststore for **https**
-A truststore is available in `src/main/resources/keystore`. Add a signed certificate in the truststore for the https url you want to get a xml file from. if you don't have such a certificate use http or enable the accept all truststore in application.properties. If you add a certificate with keytool make sure it is signed by an authorized CA in the top of the certificate chain (available in cacerts keystore of your jre). 
+A truststore is available in `src/main/resources/keystore`. Add a signed certificate in the truststore for the *https* url you want to get a xml file from. if you don't have such a certificate use *http* or enable the accept all truststore in application.properties. If you add a certificate with keytool make sure it is signed by an authorized CA in the top of the certificate chain (available in cacerts keystore of your jre). 
 
 #### Test the service after adding the certificate by starting the service like this (not tested yet):
 ```
