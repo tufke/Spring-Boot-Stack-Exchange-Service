@@ -56,6 +56,17 @@ Find other larger files on archive site https://archive.org/details/stackexchang
  }
 ```
 #
+### Building the application
+* Clone the repository to your harddrive
+* Import the project in Eclipse 2019-9
+* Make sure you are using a Java 8 JDK for the project
+* Set maven nature on the project
+* Run maven update
+* Optional: Install Spring tool suite 4 and open your workspace by starting this suite instead of eclipse
+* Setup Lombok in your IDE (double click on the lombok 1.18.8 jar in your maven repo)
+* Run maven clean install and Maven update until all Lombok and MapStruct code is generated and on the classpath
+* Run the application from eclipse or from commandline (Executable jar is in target folder)
+#
 ### Running the application
 #### Java 8: You can run the spring boot jar by using Java 8 with the following command from commandline:
 ```
