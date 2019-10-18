@@ -14,7 +14,8 @@
 *	At least a single Java 8 feature should be included.
 
 ### Docker container:
-*	Create a docker-image for the server, based on the standard Java docker image (https://hub.docker.com/_/java/). The dockerfile used to create this image should be part of the repo.
+*	Create a docker-image for the server, based on the standard Java docker image (https://hub.docker.com/_/java/).
+  * The dockerfile used to create this image should be part of the repo.
 *	Commit the docker image on Dockerhub (https://hub.docker.com)
 *	Add a Readme on how to start and use the docker image
 
@@ -30,7 +31,7 @@ Find other larger files on archive site https://archive.org/details/stackexchang
 * if you copy posts.xml to C: on your local harddrive you could access it with the service providing in the body the following url
 file:c://posts.xml
 
-### example JSON post request:
+### Example JSON post request:
 ```
 > POST http://localhost:8080/stack/posts/analyze
 > host: localhost:8080
@@ -40,7 +41,7 @@ file:c://posts.xml
 }
 ```
 
-### example JSON response:
+### Example JSON response:
 ```
 > POST http://localhost:8080/stack/posts/analyze
 < 200 (OK)
@@ -61,7 +62,7 @@ file:c://posts.xml
 java -jar stackservice-1.0-SNAPSHOT.jar
 ```
 #
-#### if you are behind a proxy add proxy configuration as jvm parameters to avoid UnkownHostException, for instance like this:
+#### If you are behind a proxy add proxy configuration as jvm parameters to avoid UnkownHostException, for instance like this:
 ```
 java -Djava.net.useSystemProxies=true -jar stackservice-1.0-SNAPSHOT.jar
 ```
@@ -71,7 +72,7 @@ java -Djava.net.useSystemProxies=true -jar stackservice-1.0-SNAPSHOT.jar
 http://localhost:8080/swagger-ui.html
 ```
 #
-#### the api documentation is available in **openapi.json** format:
+#### The api documentation is available in **openapi.json** format:
 ```
 http://localhost:8080/v3/api-docs
 ```
@@ -79,12 +80,11 @@ http://localhost:8080/v3/api-docs
 #### Truststore for **https**
 A truststore is available in `src/main/resources/keystore`. Add a signed certificate in the truststore for the https url you want to get a xml file from. if you don't have such a certificate use http or enable the accept all truststore in application.properties. If you add a certificate with keytool make sure it is signed by an authorized CA in the top of the certificate chain (available in cacerts keystore of your jre). 
 
-#### test the service after adding the certificate by starting the service like this (not tested yet):
+#### Test the service after adding the certificate by starting the service like this (not tested yet):
 ```
 java -Djava.net.useSystemProxies=true -jar stackservice-1.0-SNAPSHOT.jar --http.client.ssl.accept-all-trust-store=false
 ```
-
-
+#
 ### Used depedencies:
 > * **Spring Boot 2**
 > * **Lombok**
