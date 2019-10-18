@@ -56,21 +56,23 @@ Find other larger files on archive site https://archive.org/details/stackexchang
  }
 ```
 #
-#### You can run the spring boot jar by using Java 8 with the following command from commandline:
+### Running the application
+#### Java 8: You can run the spring boot jar by using Java 8 with the following command from commandline:
 ```
 java -jar stackservice-1.0-SNAPSHOT.jar
 ```
 #
-#### If you are behind a proxy add proxy configuration as jvm parameters to avoid UnkownHostException, for instance like this:
+#### Java 8 behind proxy: If you are behind a proxy add proxy configuration as jvm parameters to avoid UnkownHostException:
 ```
 java -Djava.net.useSystemProxies=true -jar stackservice-1.0-SNAPSHOT.jar
 ```
 #
-#### Running it with maven is done with the following command:
+#### Maven 3: Running it with maven is done with the following command:
 ```
 mvn spring-boot:run -Dspring-boot.run.jvmArguments="-Djava.net.useSystemProxies=true"
 ```
 #
+### Testing the application
 #### When the server is running you can test the service with the **Swagger-UI**:
 ```
 http://localhost:8080/swagger-ui.html
