@@ -88,9 +88,9 @@ A truststore is available in `src/main/resources/keystore`. Add a signed certifi
 * http://s3-eu-west-1.amazonaws.com/merapar-assessment/arabic-posts.xml
 
 
-#### Test the service after adding the certificate by starting the service like this (not tested yet):
+#### By default http.client.ssl.accept-all-trust-store is set to false, ik you want to make a https call without certificate start your server like this:
 ```
-java -Djava.net.useSystemProxies=true -jar stackservice-1.0-SNAPSHOT.jar --http.client.ssl.accept-all-trust-store=false
+java -Djava.net.useSystemProxies=true -jar stackservice-1.0-SNAPSHOT.jar --http.client.ssl.accept-all-trust-store=true
 ```
 #
 ### Used depedencies:
