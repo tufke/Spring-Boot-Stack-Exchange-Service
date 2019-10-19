@@ -147,7 +147,7 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<executions>
-					<!-- Start tomcat server for integration phase, needed for openapi.json generation -->
+				<!-- Start tomcat server for integration phase, needed for openapi.json generation -->
 					<execution>
 						<id>pre-integration-test</id>
 						<goals>
