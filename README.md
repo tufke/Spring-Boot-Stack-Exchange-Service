@@ -56,8 +56,9 @@ Find other larger files on archive site https://archive.org/details/stackexchang
  }
 ```
 #
-### Building the application
-* Clone the repository to your harddrive
+#
+### Building the application in Eclipse
+* Clone the repository to your Git repository
 * Import the project in Eclipse 2019-9
 * Make sure you are using a Java 8 JDK for the project
 * Set maven nature on the project
@@ -66,6 +67,12 @@ Find other larger files on archive site https://archive.org/details/stackexchang
 * Setup Lombok in your IDE (double click on the lombok 1.18.8 jar in your maven repo)
 * Run maven clean install and Maven update until all Lombok and MapStruct code is generated and on the classpath
 * Run the application from eclipse or from commandline (Executable jar is in target folder)
+#
+### Building a docker image
+```
+docker build -t <yourusername>/spring-boot-stack-exchange-service:latest .
+```
+#
 #
 ### Running the application
 #### Java 8: You can run the spring boot jar by using Java 8 with the following command from commandline:
@@ -83,15 +90,53 @@ java -Djava.net.useSystemProxies=true -jar stackservice-1.0-SNAPSHOT.jar
 mvn spring-boot:run -Dspring-boot.run.jvmArguments="-Djava.net.useSystemProxies=true"
 ```
 #
+#### Eclipse: Running it with Eclipse is done with a run configuration:
+* Right click StackServiceApplication.java
+* > Run As > Spring Boot App (in case you started the workspace with Spring Tool Suite) 
+* > Run As > Java Application (in case you started eclipse)
+#
+#### Docker: Running it with docker is done with the following command (cmd line from your Git repo):
+```
+docker run -p 8080:8080 sprek/spring-boot-stack-exchange-service:latest
+```
+or if you build a Docker image yourself:
+```
+docker run -p 8080:8080 <yourusername>/spring-boot-stack-exchange-service:latest
+```
+#
+#
 ### Testing the application
 #### When the server is running you can test the service with the **Swagger-UI**:
 ```
 http://localhost:8080/swagger-ui.html
 ```
+In case you started the docker container:
+```
+http://192.168.99.100:8080/swagger-ui.html
+```
+* Select /stack/posts/analyze
+* Click button 'try out'
+* Use request as given body below here
+* Click execute
+* Response shown in swagger UI (and in commandline or IDE depending how you started the application)
+```
+{ 
+    "url": "http://s3-eu-west-1.amazonaws.com/merapar-assessment/arabic-posts.xml" 
+}
+```
+#
+#### Stopping the docker container:
+* ctrl-d to stop session in command line
+* docker ps -a to list all containers
+* docker stop <containerid> to stop the container
 #
 #### The api documentation is available in **openapi.json** format:
 ```
 http://localhost:8080/v3/api-docs
+```
+In case you started the docker container:
+```
+http://192.168.99.100:8080/v3/api-docs 
 ```
 #
 #### Truststore for **https**
@@ -99,10 +144,44 @@ A truststore is available in `src/main/resources/keystore`. Add a signed certifi
 * http://s3-eu-west-1.amazonaws.com/merapar-assessment/arabic-posts.xml
 
 
-#### By default http.client.ssl.accept-all-trust-store is set to false, ik you want to make a https call without certificate start your server like this:
+#### By default http.client.ssl.accept-all-trust-store is set to false, ik you want to make a https call without certificate check, start your server like this:
 ```
 java -Djava.net.useSystemProxies=true -jar stackservice-1.0-SNAPSHOT.jar --http.client.ssl.accept-all-trust-store=true
 ```
+#
+#
+### Docker commands you might want to run from commandline:
+#### Enable autocomplete in CMD.
+```
+cmd /f
+then with CTRL-D and CTRL-F autocomplete Directory and File names
+```
+```
+docker images  --> List all available images
+docker ps -a   --> List all available containers, Without -a you only list the running containers.
+docker rm $(docker ps -a -q)  --> remove all your containers
+docker rm $(docker ps -a -q -f status=exited) --> remove all your containers with status exited
+docker rm 305297d7a235 ff0a5c3750b9  --> remove specific containers, container ids you lookup with 'docker ps -a'
+docker rmi $(docker images -q) --> remove all your images
+docker exec -it <container id> /bin/sh --> Start a terminal session on a running container
+docker login then provide USERNAME and PASSWORD when prompted
+docker push <hub-user-name>/<repo-name>:<tag> --> Push an image to dockerhub
+docker pull <hub-user-name>/<repo-name>:<tag> --> Pull a docker image from dockerhub
+docker run <imagename> --> Run a image in a new container
+docker run --rm <hub-user-name>/<imagename> --> rm flag automatically removes the container when it exits
+docker run -d -P --name <imagename> <hub-user-name>/<imagename> --> -d will detach the terminal, -P will publish all exposed ports to random ports and finally --name corresponds to a name we want to give
+docker run -p 8888:80 <hub-user-name>/<imagename> --> specify a custom port to which the client will forward connections to the container
+docker run -d -it image_name sh --> run in an interactive shell container
+docker stop <imagename> --> Stop a detached container
+docker port <containername> --> See all ports available for a running container
+docker search --> search an image
+docker build -t <hub-user-name>/<git-projectname-in-your-local-repo> .  --> build a docker image from a git project
+```
+```
+ctrl-d --> Stop bash sessie van interactive shell and return to command prompt
+ctrl-c --> Stop running container session and return to command prompt (container keeps running)
+```
+#
 #
 ### Used depedencies:
 > * **Spring Boot 2**
