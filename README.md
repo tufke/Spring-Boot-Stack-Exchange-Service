@@ -18,6 +18,10 @@
   * The dockerfile used to create this image should be part of the repo.
 *	Commit the docker image on Dockerhub (https://hub.docker.com)
 *	Add a Readme on how to start and use the docker image
+* Docker image available at:
+```
+https://cloud.docker.com/repository/docker/sprek/spring-boot-stack-exchange-service
+```
 
 ### Example files:
 The files are based on stack overflow site with data per topic.
