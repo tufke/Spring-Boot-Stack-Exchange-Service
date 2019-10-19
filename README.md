@@ -56,7 +56,6 @@ Find other larger files on archive site https://archive.org/details/stackexchang
  }
 ```
 #
-#
 ### Building the application in Eclipse
 * Clone the repository to your Git repository
 * Import the project in Eclipse 2019-9
@@ -72,7 +71,6 @@ Find other larger files on archive site https://archive.org/details/stackexchang
 ```
 docker build -t <yourusername>/spring-boot-stack-exchange-service:latest .
 ```
-#
 #
 ### Running the application
 #### Java 8: You can run the spring boot jar by using Java 8 with the following command from commandline:
@@ -104,7 +102,6 @@ or if you build a Docker image yourself:
 docker run -p 8080:8080 <yourusername>/spring-boot-stack-exchange-service:latest
 ```
 #
-#
 ### Testing the application
 #### When the server is running you can test the service with the **Swagger-UI**:
 ```
@@ -116,7 +113,7 @@ http://192.168.99.100:8080/swagger-ui.html
 ```
 * Select /stack/posts/analyze
 * Click button 'try out'
-* Use request as given body below here
+* Use request body as given below here
 * Click execute
 * Response shown in swagger UI (and in commandline or IDE depending how you started the application)
 ```
@@ -126,9 +123,9 @@ http://192.168.99.100:8080/swagger-ui.html
 ```
 #
 #### Stopping the docker container:
-* ctrl-d to stop session in command line
-* docker ps -a to list all containers
-* docker stop <containerid> to stop the container
+* ctrl-d or ctrl-c to stop session and return to command prompt
+* docker ps -a --> to list all containers
+* docker stop <containerid> --> to stop the container
 #
 #### The api documentation is available in **openapi.json** format:
 ```
@@ -148,7 +145,6 @@ A truststore is available in `src/main/resources/keystore`. Add a signed certifi
 ```
 java -Djava.net.useSystemProxies=true -jar stackservice-1.0-SNAPSHOT.jar --http.client.ssl.accept-all-trust-store=true
 ```
-#
 #
 ### Docker commands you might want to run from commandline:
 #### Enable autocomplete in CMD.
@@ -181,7 +177,6 @@ docker build -t <hub-user-name>/<git-projectname-in-your-local-repo> .  --> buil
 ctrl-d --> Stop bash sessie van interactive shell and return to command prompt
 ctrl-c --> Stop running container session and return to command prompt (container keeps running)
 ```
-#
 #
 ### Used depedencies:
 > * **Spring Boot 2**
